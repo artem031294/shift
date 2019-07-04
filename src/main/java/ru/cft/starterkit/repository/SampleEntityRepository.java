@@ -14,4 +14,6 @@ public interface SampleEntityRepository {
     Collection<SampleEntity> getOrders();
 
     SampleEntity update(Long id, Double price, String status, String date) throws ObjectNotFoundException;
+
+    SampleEntity update(Long id, String status, Long supID) throws ObjectNotFoundException;
 }

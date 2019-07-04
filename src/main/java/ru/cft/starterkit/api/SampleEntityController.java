@@ -69,5 +69,21 @@ public class SampleEntityController {
         }
     }
 
+    @PostMapping(
+            path="/accept/{id}",
+            consumes = "application/json",
+            produces = "application/json"
+    )
+    public SampleEntity accept(@PathVariable(name = "id") Long id, @RequestBody SampleEntity sampleEntity) {
+
+        try {
+            Long supID = sampleEntity.getSupID();
+            String status = "accepted";
+            return sampleEntityService.accept(id, status, supID);
+        } catch (ObjectNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
+    }
+
 
 }

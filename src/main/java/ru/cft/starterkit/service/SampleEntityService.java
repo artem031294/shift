@@ -16,4 +16,6 @@ public interface SampleEntityService {
     SampleEntity add(SampleEntity sampleEntity);
 
     SampleEntity reply(Long id, Double price, String status, String date) throws ObjectNotFoundException;
+
+    SampleEntity accept(Long id, String status, Long supID) throws ObjectNotFoundException;
 }

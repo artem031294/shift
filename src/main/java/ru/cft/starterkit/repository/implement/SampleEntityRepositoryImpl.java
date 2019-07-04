@@ -80,6 +80,21 @@ public class SampleEntityRepositoryImpl implements SampleEntityRepository {
         log.info("Sample entity with id '{}' from storage: {} is updated.", id, sampleEntity);
         return sampleEntity;
     }
+    @Override
+    public SampleEntity update(Long id, String status, Long supID) throws ObjectNotFoundException {
+
+        SampleEntity sampleEntity = storage.get(id);
+
+        if (sampleEntity == null) {
+            log.error("Failed to get sample entity with id '{}' from storage", id);
+            throw new ObjectNotFoundException(String.format("Sample entity with id %s not found", id));
+        }
+        sampleEntity.setStatus(status);
+        sampleEntity.setSupID(supID);
+
+        log.info("Sample entity with id '{}' from storage: {} is updated.", id, sampleEntity);
+        return sampleEntity;
+    }
 
 
 

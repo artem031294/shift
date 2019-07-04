@@ -10,15 +10,13 @@ public class SampleEntity {
 
     private Long id;
 
-    private String foo;
-
-    private Double bar;
-
     private Double price;
     private String status;
     //private Long date1;
     private String date;
     private String productList;
+
+    private Long supID;
 
     @JsonIgnore
     private UUID baz;
@@ -26,14 +24,14 @@ public class SampleEntity {
     public SampleEntity() {
     }
 
-    public SampleEntity(String foo, Double bar, String date, Double price, String status, String productList, UUID baz) {
-        this.foo = foo;
-        this.bar = bar;
+    public SampleEntity(String date, Double price, String status, String productList, Long supID, UUID baz) {
+
         this.baz = baz;
 
         this.date = date;
         this.price = price;
         this.status = status;
+        this.supID = supID;
         this.productList = productList;
     }
 
@@ -43,22 +41,6 @@ public class SampleEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getFoo() {
-        return foo;
-    }
-
-    public void setFoo(String foo) {
-        this.foo = foo;
-    }
-
-    public Double getBar() {
-        return bar;
-    }
-
-    public void setBar(Double bar) {
-        this.bar = bar;
     }
 
     public UUID getBaz() {
@@ -79,38 +61,15 @@ public class SampleEntity {
     public void setDate(String date) {
         this.date = date;
     }
+    public void setSupID(Long supID) {
+        this.supID = supID;
+    }
+
+    public Long getSupID() { return supID; }
 
     public Double getPrice() { return price; }
-   // public Long getDate1() { return date1; }
     public String getStatus() { return status; }
     public String getDate() { return date; }
     public String getProductList() { return productList; }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof SampleEntity)) return false;
-        SampleEntity entity = (SampleEntity) o;
-        return Objects.equals(id, entity.id) &&
-               Objects.equals(foo, entity.foo) &&
-               Objects.equals(bar, entity.bar) &&
-               Objects.equals(baz, entity.baz);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, foo, bar, baz);
-    }
-
-    @Override
-    public String toString() {
-        return "SampleEntity{" +
-               "id=" + id +
-               ", foo='" + foo + '\'' +
-               ", bar=" + bar +
-               ", baz=" + baz +
-               '}';
-    }
 
 }

@@ -46,4 +46,9 @@ public class SampleEntityServiceImpl implements SampleEntityService {
         return sampleEntityRepository.update(id, price, status, date);
     }
 
+    @Override
+    public SampleEntity accept(Long id, String status, Long supID) throws ObjectNotFoundException {
+        return sampleEntityRepository.update(id, status, supID);
+    }
+
 }
