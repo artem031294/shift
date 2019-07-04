@@ -16,7 +16,9 @@ public class SampleEntity {
 
     private Double price;
     private String status;
-    private Long date;
+    //private Long date1;
+    private String date;
+    private String productList;
 
     @JsonIgnore
     private UUID baz;
@@ -24,12 +26,15 @@ public class SampleEntity {
     public SampleEntity() {
     }
 
-    public SampleEntity(String foo, Double bar, Double price, String status, UUID baz) {
+    public SampleEntity(String foo, Double bar, String date, Double price, String status, String productList, UUID baz) {
         this.foo = foo;
         this.bar = bar;
         this.baz = baz;
+
+        this.date = date;
         this.price = price;
         this.status = status;
+        this.productList = productList;
     }
 
     public Long getId() {
@@ -64,19 +69,22 @@ public class SampleEntity {
         this.baz = baz;
     }
 
-    public void setDate() {
-        this.date = Instant.now().getEpochSecond();
-    }
+    //public void setDate() {this.date1 = Instant.now().getEpochSecond();}
     public void setPrice(Double price) {
         this.price = price;
     }
     public void setStatus(String status) {
         this.status = status;
     }
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public Double getPrice() { return price; }
-    public Long getDate() { return date; }
+   // public Long getDate1() { return date1; }
     public String getStatus() { return status; }
+    public String getDate() { return date; }
+    public String getProductList() { return productList; }
 
 
     @Override

@@ -39,7 +39,6 @@ public class SampleEntityRepositoryImpl implements SampleEntityRepository {
     @Override
     public SampleEntity add(SampleEntity sampleEntity) {
         sampleEntity.setId(idCounter.incrementAndGet());
-        sampleEntity.setDate();
         storage.put(sampleEntity.getId(), sampleEntity);
 
         log.info("Added new sample entity to storage: {}", sampleEntity);
@@ -65,7 +64,7 @@ public class SampleEntityRepositoryImpl implements SampleEntityRepository {
     }
 
     @Override
-    public SampleEntity update(Long id, Double price, String status) throws ObjectNotFoundException {
+    public SampleEntity update(Long id, Double price, String status, String date) throws ObjectNotFoundException {
 
         SampleEntity sampleEntity = storage.get(id);
 
@@ -74,7 +73,7 @@ public class SampleEntityRepositoryImpl implements SampleEntityRepository {
             throw new ObjectNotFoundException(String.format("Sample entity with id %s not found", id));
         }
 
-        sampleEntity.setDate();
+        sampleEntity.setDate(date);
         sampleEntity.setPrice(price);
         sampleEntity.setStatus(status);
 

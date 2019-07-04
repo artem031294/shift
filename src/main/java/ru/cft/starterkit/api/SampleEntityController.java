@@ -61,8 +61,9 @@ public class SampleEntityController {
 
         try {
             String status = "replied";
+            String date = sampleEntity.getDate();
             Double price = sampleEntity.getPrice();
-            return sampleEntityService.reply(id, price, status);
+            return sampleEntityService.reply(id, price, status, date);
         } catch (ObjectNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
         }
