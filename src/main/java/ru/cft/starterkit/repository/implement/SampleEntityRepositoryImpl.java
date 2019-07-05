@@ -21,7 +21,9 @@ import java.util.concurrent.atomic.AtomicLong;
 @Repository
 public class SampleEntityRepositoryImpl implements SampleEntityRepository {
 
-    private static final File STORAGE_FILE = new File("C:\\temp\\samples.json");
+    //private static final File STORAGE_FILE = new File("C:\\temp\\samples.json");
+
+    private static final File STORAGE_FILE = new File("/home/user/orders.json");
 
     private static final Logger log = LoggerFactory.getLogger(SampleEntityRepositoryImpl.class);
 
